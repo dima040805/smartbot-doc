@@ -17,6 +17,21 @@ build:docs:
   script:
     - npm install -g @diplodoc/cli@latest
     - yfm build -i ./ -o ./public --allow-custom-resources
+    - |
+      cat > public/index.html <<'EOF'
+      <!DOCTYPE html>
+      <html lang="ru">
+        <head>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=./ru/Smartbot_Pro.html">
+          <title>Smartbot Pro</title>
+          <script>window.location.replace('./ru/Smartbot_Pro.html');</script>
+        </head>
+        <body>
+          <a href="./ru/Smartbot_Pro.html">Smartbot Pro</a>
+        </body>
+      </html>
+      EOF
   artifacts:
     paths:
       - public
